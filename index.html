@@ -170,7 +170,7 @@ Plusworx
             <div class="container">
                 <h2 class="title is-2 has-text-centered">About</h2>
                 
-                <div class="markdown">
+                <div class="markdown has-text-centered">
                     <p>Here at plusworx we love to help others to get the best out of Google Workspace. We have a great deal of general IT experience as well as in depth Google Workspace knowledge.</p>
 <p>If you need assistance with your Google Workspace journey then <a href="#contact"><strong>get in touch</strong></a>.</p>
 
@@ -212,7 +212,7 @@ Plusworx
 
                 </div>
                 
-                <p>My current local time is <span id="time" data-time-zone="Europe/London" data-time-format="h:mm A"></span>.</p>
+                <p>My current local time is <span id="time"></span>.</p>
                 
                 
                 <h3 class="subtitle is-3 has-text-centered top-pad">
@@ -282,12 +282,15 @@ Plusworx
 
 
         
-        
-        
-        
-        
-        
-        <script src="http://plusworx.uk/js/bundleMoment.00f097d38e126139c76cdebf43c20ec084dd5db287b651f3607b0a7239b5958e.js" integrity="sha256-APCX044SYTnHbN6/Q8IOwITdXbKHtlHzYHsKcjm1lY4="></script>
+        <script>
+            function update_localtime() {
+                const time = new Date().toLocaleTimeString('h:mm A', { timeZone: 'Europe\/London', timeStyle: 'short' });
+                document.getElementById('time').innerHTML = time;
+            }
+            update_localtime();
+            
+            setInterval(update_localtime, 1000);
+        </script>
         
     </body>
 
